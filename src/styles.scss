@@ -5,9 +5,12 @@
   --toggle-control-size: clamp(0.875rem, 4vw, 1rem);
 
   --key-min-height: clamp(3.75rem, 16vw, 4rem);
-  --key-padding-top: clamp(0.375rem, 1.5vw, 0.4375rem);
+  --key-padding-block-start: clamp(0.375rem, 1.5vw, 0.4375rem);
   --key-padding-inline: clamp(0.25rem, 1vw, 0.3125rem);
-  --key-padding-bottom: 0.0625rem;
+  --key-padding-block-end: 0.0625rem;
+
+  --key-font-size: clamp(2rem, 8vw, 2.5rem);
+  --action-font-size: clamp(1rem, 4vw, 1.25rem);
   --key-radius: 0.3125rem;
 
   --focus-size: 0.1875rem;
@@ -164,8 +167,10 @@ body {
 
   min-width: 0;
   min-height: var(--key-min-height);
-  padding: var(--key-padding-top) var(--key-padding-inline)
-    var(--key-padding-bottom);
+  padding-block-start: var(--key-padding-block-start);
+  padding-inline: var(--key-padding-inline);
+  padding-block-end: var(--key-padding-block-end);
+  font-size: var(--key-font-size);
   border: 0;
   border-radius: var(--key-radius);
   cursor: pointer;
@@ -198,7 +203,7 @@ body {
       var(--action-text)
     );
 
-    font-size: 1.25rem;
+    font-size: var(--action-font-size);
   }
 
   &--equals {
@@ -208,7 +213,7 @@ body {
       var(--equals-text)
     );
 
-    font-size: 1.25rem;
+    font-size: var(--action-font-size);
   }
 }
 
