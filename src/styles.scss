@@ -58,7 +58,7 @@ $themes: (
   ),
 );
 
-// Sass maps and nested loops generate all three theme variable sets.
+// Generate CSS custom properties for each theme.
 @each $theme-name, $tokens in $themes {
   html[data-theme="#{$theme-name}"] {
     @each $token, $value in $tokens {
@@ -93,16 +93,16 @@ body {
   border-radius: 100vmax;
   outline: none;
   cursor: pointer;
-  background: var(--toggle-bg);
+  background-color: var(--toggle-bg);
 
   &::-webkit-slider-runnable-track {
     height: 1rem;
-    background: transparent;
+    background-color: transparent;
   }
 
   &::-moz-range-track {
     height: 1rem;
-    background: transparent;
+    background-color: transparent;
   }
 
   &::-webkit-slider-thumb {
@@ -111,8 +111,7 @@ body {
     appearance: none;
     border: 0;
     border-radius: 50%;
-    background: var(--toggle-thumb);
-    transition: filter 150ms ease;
+    background-color: var(--toggle-thumb);
   }
 
   &::-moz-range-thumb {
@@ -120,14 +119,14 @@ body {
     height: 1rem;
     border: 0;
     border-radius: 50%;
-    background: var(--toggle-thumb);
-    transition: filter 150ms ease;
+    background-color: var(--toggle-thumb);
   }
 
   &:hover {
     &::-webkit-slider-thumb {
       filter: brightness(1.35);
     }
+
     &::-moz-range-thumb {
       filter: brightness(1.35);
     }
@@ -150,11 +149,6 @@ body {
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
-  transition:
-    filter 120ms ease,
-    transform 80ms ease,
-    background-color 180ms ease,
-    color 180ms ease;
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
@@ -181,6 +175,7 @@ body {
       var(--action-shadow),
       var(--action-text)
     );
+
     font-size: 1.25rem;
   }
 
@@ -190,6 +185,7 @@ body {
       var(--equals-shadow),
       var(--equals-text)
     );
+
     font-size: 1.25rem;
   }
 }
@@ -214,6 +210,24 @@ body {
   }
 }
 
+// Only enable animations when the user has not requested reduced motion.
+@media (prefers-reduced-motion: no-preference) {
+  .theme-toggle {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      transition: filter 150ms ease;
+    }
+  }
+
+  .key {
+    transition:
+      filter 120ms ease,
+      transform 80ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion-element,
   .theme-toggle,
@@ -222,11 +236,15 @@ body {
     transition: none;
   }
 
-  .theme-toggle::-webkit-slider-thumb {
-    transition: none;
+  .theme-toggle {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      transition: none;
+    }
   }
 
-  .theme-toggle::-moz-range-thumb {
-    transition: none;
+  .key:active,
+  .key.is-pressed {
+    transform: none;
   }
 }
