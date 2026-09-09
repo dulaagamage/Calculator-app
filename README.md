@@ -1,6 +1,6 @@
 # 🧮 Multi-Theme Calculator App
 
-This is a responsive calculator application created as a solution to the Frontend Mentor Calculator App challenge. It includes three colour themes, smooth interactions, keyboard support, and a responsive layout for mobile and desktop screens.
+This responsive calculator application was created to solve the Frontend Mentor Calculator App challenge. It includes three colour themes, smooth interactions, keyboard support, and a responsive layout for mobile and desktop screens.
 
 ---
 
@@ -39,15 +39,39 @@ Users should be able to:
 
 ### 📸 Screenshot
 
-![Calculator desktop design](./ss/desktop1.png)
+#### Desktop view
+<table>
+  <tr>
+    <td>
+      <img src="./ss/desktop1.png" alt="Calculator desktop theme 1" width="400">
+    </td>
+    <td>
+      <img src="./ss/desktop2.png" alt="Calculator desktop theme 2" width="400">
+    </td>
+  </tr>
+</table>
+<img src="./ss/desktop3.png" alt="Calculator desktop theme 3" width="400">
+
+#### Mobile view
+<table>
+  <tr>
+    <td>
+      <img src="./ss/mobile1.png" alt="Calculator mobile theme 1" width="220">
+    </td>
+    <td>
+      <img src="./ss/mobile2.png" alt="Calculator mobile theme 2" width="220">
+    </td>
+    <td>
+      <img src="./ss/mobile3.png" alt="Calculator mobile theme 2" width="220">
+    </td>
+  </tr>
+</table>
 
 ### 🔗 Links
 
-- 🔴 **Live Site URL**: [https://dulaagamage.github.io/calculator-app/](https://dulaagamage.github.io/Calculator-app/)
-- 🟣 **GitHub Repository**: [https://github.com/dulaagamage/calculator-app](https://github.com/dulaagamage/Calculator-app)
-- 🟢 **Frontend Mentor Challenge**: [Calculator App Challenge]
-
-> The repository and live-site links will work after the project is uploaded to a GitHub repository named `calculator-app` and GitHub Pages is enabled.
+- **Live Site URL**: [https://dulaagamage.github.io/calculator-app/]([https://dulaagamage.github.io/Calculator-app/])
+- **GitHub Repository**: [https://github.com/dulaagamage/calculator-app](https://github.com/dulaagamage/Calculator-app)
+- **Frontend Mentor Challenge**: [Calculator App Challenge]
 
 ---
 
