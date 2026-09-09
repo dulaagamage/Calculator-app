@@ -12,7 +12,7 @@
 </head>
 
 <body
-  class="grid min-h-svh min-w-80 place-items-center bg-(--page-bg) px-6 py-8 text-(--heading-text) transition-colors duration-200 sm:py-12">
+  class="motion-element grid min-h-svh min-w-80 place-items-center bg-(--page-bg) px-6 py-8 text-(--heading-text) transition-colors duration-200 sm:py-12">
   <main class="w-full max-w-135">
     <header class="mb-7 flex min-h-11 items-end justify-between sm:mb-8">
       <h1 class="m-0 text-[2rem] leading-none tracking-[-0.03em]">calc</h1>
@@ -28,12 +28,13 @@
       </div>
     </header>
 
-    <output id="display"
-      class="flex min-h-22 items-center justify-end overflow-hidden whitespace-nowrap rounded-[10px] bg-(--screen-bg) px-6 pb-4.25 pt-5.75 text-right text-[clamp(2.5rem,12vw,3.5rem)] leading-none text-(--screen-text) transition-colors duration-200 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-9"
-      aria-live="polite" aria-atomic="true">0</output>
+    <output id="display" class="calculator-display motion-element flex min-h-22 items-center justify-end overflow-hidden whitespace-nowrap rounded-[10px] bg-(--screen-bg) px-6 pb-4.25 pt-5.75 text-right text-[clamp(2.5rem,12vw,3.5rem)] leading-none text-(--screen-text) transition-colors duration-200 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-9" aria-live="polite"
+      aria-atomic="true">
+      0
+    </output>
 
     <section id="keypad"
-      class="mt-6 grid grid-cols-4 gap-3.25 rounded-[10px] bg-(--keypad-bg) p-6 transition-colors duration-200 sm:gap-x-6 sm:gap-y-6.25 sm:p-8"
+      class="motion-element mt-6 grid grid-cols-4 gap-3.25 rounded-[10px] bg-(--keypad-bg) p-6 transition-colors duration-200 sm:gap-x-6 sm:gap-y-6.25 sm:p-8"
       aria-label="Calculator keypad">
       <button class="key" type="button" data-number="7">7</button>
       <button class="key" type="button" data-number="8">8</button>
