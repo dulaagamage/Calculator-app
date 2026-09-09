@@ -71,7 +71,7 @@ Users should be able to:
 
 - **Live Site URL**: [https://dulaagamage.github.io/calculator-app/](https://dulaagamage.github.io/Calculator-app)
 - **GitHub Repository**: [https://github.com/dulaagamage/Calculator-app](https://github.com/dulaagamage/Calculator-app)
-- **Frontend Mentor Challenge**: [Calculator App Challenge]
+- **Frontend Mentor Challenge**: [Calculator App Challenge](https://www.frontendmentor.io/solutions/calculator-app-BT8SQCoJhj)
 
 ---
 
