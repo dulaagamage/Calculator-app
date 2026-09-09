@@ -1,80 +1,101 @@
-$themes: (
-  "1": (
-    page-bg: hsl(222, 26%, 31%),
-    keypad-bg: hsl(223, 31%, 20%),
-    screen-bg: hsl(224, 36%, 15%),
-    heading-text: hsl(0, 100%, 100%),
-    screen-text: hsl(0, 100%, 100%),
-    key-bg: hsl(0, 0%, 90%),
-    key-shadow: hsl(28, 16%, 65%),
-    key-text: hsl(221, 14%, 31%),
-    action-bg: hsl(225, 21%, 49%),
-    action-shadow: hsl(224, 28%, 35%),
-    action-text: hsl(0, 100%, 100%),
-    equals-bg: hsl(6, 63%, 50%),
-    equals-shadow: hsl(6, 70%, 34%),
-    equals-text: hsl(0, 100%, 100%),
-    toggle-bg: hsl(223, 31%, 20%),
-    toggle-thumb: hsl(6, 63%, 50%),
-    focus-ring: hsl(0, 100%, 100%),
-  ),
-  "2": (
-    page-bg: hsl(0, 0%, 90%),
-    keypad-bg: hsl(0, 5%, 81%),
-    screen-bg: hsl(0, 0%, 93%),
-    heading-text: hsl(60, 10%, 19%),
-    screen-text: hsl(60, 10%, 19%),
-    key-bg: hsl(0, 0%, 90%),
-    key-shadow: hsl(35, 11%, 61%),
-    key-text: hsl(60, 10%, 19%),
-    action-bg: hsl(185, 42%, 37%),
-    action-shadow: hsl(185, 58%, 25%),
-    action-text: hsl(0, 100%, 100%),
-    equals-bg: hsl(25, 98%, 40%),
-    equals-shadow: hsl(25, 99%, 27%),
-    equals-text: hsl(0, 100%, 100%),
-    toggle-bg: hsl(0, 5%, 81%),
-    toggle-thumb: hsl(25, 98%, 40%),
-    focus-ring: hsl(185, 42%, 37%),
-  ),
-  "3": (
-    page-bg: hsl(268, 75%, 9%),
-    keypad-bg: hsl(268, 71%, 12%),
-    screen-bg: hsl(268, 71%, 12%),
-    heading-text: hsl(52, 100%, 62%),
-    screen-text: hsl(52, 100%, 62%),
-    key-bg: hsl(268, 47%, 21%),
-    key-shadow: hsl(290, 70%, 36%),
-    key-text: hsl(52, 100%, 62%),
-    action-bg: hsl(281, 89%, 26%),
-    action-shadow: hsl(285, 91%, 52%),
-    action-text: hsl(0, 100%, 100%),
-    equals-bg: hsl(176, 100%, 44%),
-    equals-shadow: hsl(177, 92%, 70%),
-    equals-text: hsl(198, 20%, 13%),
-    toggle-bg: hsl(268, 71%, 12%),
-    toggle-thumb: hsl(176, 100%, 44%),
-    focus-ring: hsl(176, 100%, 44%),
-  ),
-);
+:root {
+  --toggle-width: clamp(4rem, 12vw, 4.4375rem);
+  --toggle-height: clamp(1.5rem, 6vw, 1.625rem);
+  --toggle-padding: clamp(0.25rem, 1vw, 0.3125rem);
+  --toggle-control-size: clamp(0.875rem, 4vw, 1rem);
 
-// Generate CSS custom properties for each theme.
-@each $theme-name, $tokens in $themes {
-  html[data-theme="#{$theme-name}"] {
-    @each $token, $value in $tokens {
-      --#{$token}: #{$value};
-    }
-  }
+  --key-min-height: clamp(3.75rem, 16vw, 4rem);
+  --key-padding-top: clamp(0.375rem, 1.5vw, 0.4375rem);
+  --key-padding-inline: clamp(0.25rem, 1vw, 0.3125rem);
+  --key-padding-bottom: 0.0625rem;
+  --key-radius: 0.3125rem;
+
+  --focus-size: 0.1875rem;
+  --key-shadow-size: 0.25rem;
+  --key-active-shadow-size: 0.0625rem;
+  --key-pressed-distance: 0.1875rem;
+}
+
+html[data-theme="1"] {
+  --page-bg: hsl(222, 26%, 31%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --heading-text: hsl(0, 100%, 100%);
+  --screen-text: hsl(0, 100%, 100%);
+
+  --key-bg: hsl(0, 0%, 90%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-text: hsl(221, 14%, 31%);
+
+  --action-bg: hsl(225, 21%, 49%);
+  --action-shadow: hsl(224, 28%, 35%);
+  --action-text: hsl(0, 100%, 100%);
+
+  --equals-bg: hsl(6, 63%, 50%);
+  --equals-shadow: hsl(6, 70%, 34%);
+  --equals-text: hsl(0, 100%, 100%);
+
+  --toggle-bg: hsl(223, 31%, 20%);
+  --toggle-thumb: hsl(6, 63%, 50%);
+  --focus-ring: hsl(0, 100%, 100%);
+}
+
+html[data-theme="2"] {
+  --page-bg: hsl(0, 0%, 90%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --heading-text: hsl(60, 10%, 19%);
+  --screen-text: hsl(60, 10%, 19%);
+
+  --key-bg: hsl(0, 0%, 90%);
+  --key-shadow: hsl(35, 11%, 61%);
+  --key-text: hsl(60, 10%, 19%);
+
+  --action-bg: hsl(185, 42%, 37%);
+  --action-shadow: hsl(185, 58%, 25%);
+  --action-text: hsl(0, 100%, 100%);
+
+  --equals-bg: hsl(25, 98%, 40%);
+  --equals-shadow: hsl(25, 99%, 27%);
+  --equals-text: hsl(0, 100%, 100%);
+
+  --toggle-bg: hsl(0, 5%, 81%);
+  --toggle-thumb: hsl(25, 98%, 40%);
+  --focus-ring: hsl(185, 42%, 37%);
+}
+
+html[data-theme="3"] {
+  --page-bg: hsl(268, 75%, 9%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --heading-text: hsl(52, 100%, 62%);
+  --screen-text: hsl(52, 100%, 62%);
+
+  --key-bg: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+  --key-text: hsl(52, 100%, 62%);
+
+  --action-bg: hsl(281, 89%, 26%);
+  --action-shadow: hsl(285, 91%, 52%);
+  --action-text: hsl(0, 100%, 100%);
+
+  --equals-bg: hsl(176, 100%, 44%);
+  --equals-shadow: hsl(177, 92%, 70%);
+  --equals-text: hsl(198, 20%, 13%);
+
+  --toggle-bg: hsl(268, 71%, 12%);
+  --toggle-thumb: hsl(176, 100%, 44%);
+  --focus-ring: hsl(176, 100%, 44%);
 }
 
 @mixin key-colours($background, $shadow, $text) {
   background-color: $background;
-  box-shadow: 0 0.25rem 0 $shadow;
+  box-shadow: 0 var(--key-shadow-size) 0 $shadow;
   color: $text;
 
   &:active,
   &.is-pressed {
-    box-shadow: 0 0.0625rem 0 $shadow;
+    box-shadow: 0 var(--key-active-shadow-size) 0 $shadow;
   }
 }
 
@@ -84,10 +105,10 @@ body {
 }
 
 .theme-toggle {
-  width: 4.4375rem;
-  height: 1.625rem;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
   margin: 0;
-  padding: 0.3125rem;
+  padding: var(--toggle-padding);
   appearance: none;
   border: 0;
   border-radius: 100vmax;
@@ -96,18 +117,18 @@ body {
   background-color: var(--toggle-bg);
 
   &::-webkit-slider-runnable-track {
-    height: 1rem;
+    height: var(--toggle-control-size);
     background-color: transparent;
   }
 
   &::-moz-range-track {
-    height: 1rem;
+    height: var(--toggle-control-size);
     background-color: transparent;
   }
 
   &::-webkit-slider-thumb {
-    width: 1rem;
-    height: 1rem;
+    width: var(--toggle-control-size);
+    height: var(--toggle-control-size);
     appearance: none;
     border: 0;
     border-radius: 50%;
@@ -115,8 +136,8 @@ body {
   }
 
   &::-moz-range-thumb {
-    width: 1rem;
-    height: 1rem;
+    width: var(--toggle-control-size);
+    height: var(--toggle-control-size);
     border: 0;
     border-radius: 50%;
     background-color: var(--toggle-thumb);
@@ -133,8 +154,8 @@ body {
   }
 
   &:focus-visible {
-    outline: 0.1875rem solid var(--focus-ring);
-    outline-offset: 0.1875rem;
+    outline: var(--focus-size) solid var(--focus-ring);
+    outline-offset: var(--focus-size);
   }
 }
 
@@ -142,10 +163,11 @@ body {
   @include key-colours(var(--key-bg), var(--key-shadow), var(--key-text));
 
   min-width: 0;
-  min-height: 3.75rem;
-  padding: 0.4375rem 0.3125rem 0.0625rem;
+  min-height: var(--key-min-height);
+  padding: var(--key-padding-top) var(--key-padding-inline)
+    var(--key-padding-bottom);
   border: 0;
-  border-radius: 0.3125rem;
+  border-radius: var(--key-radius);
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
@@ -157,12 +179,12 @@ body {
 
   &:active,
   &.is-pressed {
-    transform: translateY(0.1875rem);
+    transform: translateY(var(--key-pressed-distance));
   }
 
   &:focus-visible {
-    outline: 0.1875rem solid var(--focus-ring);
-    outline-offset: 0.1875rem;
+    outline: var(--focus-size) solid var(--focus-ring);
+    outline-offset: var(--focus-size);
   }
 
   &--wide {
@@ -199,8 +221,11 @@ body {
 }
 
 @media (min-width: 37.5em) {
+  :root {
+    --key-radius: 0.625rem;
+  }
+
   .key {
-    border-radius: 0.625rem;
     font-size: 2.5rem;
 
     &--action,
@@ -210,7 +235,6 @@ body {
   }
 }
 
-// Only enable animations when the user has not requested reduced motion.
 @media (prefers-reduced-motion: no-preference) {
   .theme-toggle {
     &::-webkit-slider-thumb,
