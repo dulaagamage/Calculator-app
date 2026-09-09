@@ -69,12 +69,12 @@ $themes: (
 
 @mixin key-colours($background, $shadow, $text) {
   background-color: $background;
-  box-shadow: 0 4px 0 $shadow;
+  box-shadow: 0 0.25rem 0 $shadow;
   color: $text;
 
   &:active,
   &.is-pressed {
-    box-shadow: 0 1px 0 $shadow;
+    box-shadow: 0 0.0625rem 0 $shadow;
   }
 }
 
@@ -84,30 +84,30 @@ body {
 }
 
 .theme-toggle {
-  width: 71px;
-  height: 26px;
+  width: 4.4375rem;
+  height: 1.625rem;
   margin: 0;
-  padding: 5px;
+  padding: 0.3125rem;
   appearance: none;
   border: 0;
-  border-radius: 999px;
+  border-radius: 100vmax;
   outline: none;
   cursor: pointer;
   background: var(--toggle-bg);
 
   &::-webkit-slider-runnable-track {
-    height: 16px;
+    height: 1rem;
     background: transparent;
   }
 
   &::-moz-range-track {
-    height: 16px;
+    height: 1rem;
     background: transparent;
   }
 
   &::-webkit-slider-thumb {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     appearance: none;
     border: 0;
     border-radius: 50%;
@@ -116,8 +116,8 @@ body {
   }
 
   &::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     border: 0;
     border-radius: 50%;
     background: var(--toggle-thumb);
@@ -134,8 +134,8 @@ body {
   }
 
   &:focus-visible {
-    outline: 3px solid var(--focus-ring);
-    outline-offset: 3px;
+    outline: 0.1875rem solid var(--focus-ring);
+    outline-offset: 0.1875rem;
   }
 }
 
@@ -143,10 +143,10 @@ body {
   @include key-colours(var(--key-bg), var(--key-shadow), var(--key-text));
 
   min-width: 0;
-  min-height: 60px;
-  padding: 7px 5px 1px;
+  min-height: 3.75rem;
+  padding: 0.4375rem 0.3125rem 0.0625rem;
   border: 0;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
@@ -163,12 +163,12 @@ body {
 
   &:active,
   &.is-pressed {
-    transform: translateY(3px);
+    transform: translateY(0.1875rem);
   }
 
   &:focus-visible {
-    outline: 3px solid var(--focus-ring);
-    outline-offset: 3px;
+    outline: 0.1875rem solid var(--focus-ring);
+    outline-offset: 0.1875rem;
   }
 
   &--wide {
@@ -194,17 +194,17 @@ body {
   }
 }
 
-#display[data-size="medium"] {
+.calculator-display[data-size="medium"] {
   font-size: clamp(2rem, 9vw, 2.75rem);
 }
 
-#display[data-size="small"] {
+.calculator-display[data-size="small"] {
   font-size: clamp(1.45rem, 7vw, 2rem);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 37.5em) {
   .key {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     font-size: 2.5rem;
 
     &--action,
@@ -215,9 +215,18 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
+  .motion-element,
+  .theme-toggle,
+  .key {
+    animation: none;
+    transition: none;
+  }
+
+  .theme-toggle::-webkit-slider-thumb {
+    transition: none;
+  }
+
+  .theme-toggle::-moz-range-thumb {
+    transition: none;
   }
 }
