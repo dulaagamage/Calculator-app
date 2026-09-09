@@ -170,11 +170,10 @@ body {
   padding-block-start: var(--key-padding-block-start);
   padding-inline: var(--key-padding-inline);
   padding-block-end: var(--key-padding-block-end);
-  font-size: var(--key-font-size);
   border: 0;
   border-radius: var(--key-radius);
   cursor: pointer;
-  font-size: 2rem;
+  font-size: clamp(var(--key-font-size), 8vw, var(--key-font-size));
   line-height: 1;
   -webkit-tap-highlight-color: transparent;
 
