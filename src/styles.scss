@@ -234,7 +234,7 @@ body {
 
     &--action,
     &--equals {
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 4vw, 1.25rem);
     }
   }
 }
