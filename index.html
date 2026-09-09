@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="1">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive calculator with three colour themes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <title>Calculator app</title>
+</head>
+
+<body
+  class="grid min-h-svh min-w-80 place-items-center bg-(--page-bg) px-6 py-8 text-(--heading-text) transition-colors duration-200 sm:py-12">
+  <main class="w-full max-w-135">
+    <header class="mb-7 flex min-h-11 items-end justify-between sm:mb-8">
+      <h1 class="m-0 text-[2rem] leading-none tracking-[-0.03em]">calc</h1>
+      <div class="flex items-end gap-6.5 uppercase">
+        <label for="theme-toggle" class="mb-1.75 text-xs tracking-[0.08em]">Theme</label>
+        <div class="w-17.75">
+          <div class="flex justify-between px-2 pb-1.25 text-xs leading-none" aria-hidden="true">
+            <span>1</span><span>2</span><span>3</span>
+          </div>
+          <input id="theme-toggle" class="theme-toggle" type="range" min="1" max="3" step="1" value="1"
+            aria-label="Select colour theme: theme 1 selected">
+        </div>
+      </div>
+    </header>
+
+    <output id="display"
+      class="flex min-h-22 items-center justify-end overflow-hidden whitespace-nowrap rounded-[10px] bg-(--screen-bg) px-6 pb-4.25 pt-5.75 text-right text-[clamp(2.5rem,12vw,3.5rem)] leading-none text-(--screen-text) transition-colors duration-200 sm:min-h-32 sm:px-8 sm:pb-7 sm:pt-9"
+      aria-live="polite" aria-atomic="true">0</output>
+
+    <section id="keypad"
+      class="mt-6 grid grid-cols-4 gap-3.25 rounded-[10px] bg-(--keypad-bg) p-6 transition-colors duration-200 sm:gap-x-6 sm:gap-y-6.25 sm:p-8"
+      aria-label="Calculator keypad">
+      <button class="key" type="button" data-number="7">7</button>
+      <button class="key" type="button" data-number="8">8</button>
+      <button class="key" type="button" data-number="9">9</button>
+      <button class="key key--action" type="button" data-action="delete">DEL</button>
+
+      <button class="key" type="button" data-number="4">4</button>
+      <button class="key" type="button" data-number="5">5</button>
+      <button class="key" type="button" data-number="6">6</button>
+      <button class="key" type="button" data-operator="+" aria-label="Add">+</button>
+
+      <button class="key" type="button" data-number="1">1</button>
+      <button class="key" type="button" data-number="2">2</button>
+      <button class="key" type="button" data-number="3">3</button>
+      <button class="key" type="button" data-operator="-" aria-label="Subtract">−</button>
+
+      <button class="key" type="button" data-action="decimal">.</button>
+      <button class="key" type="button" data-number="0">0</button>
+      <button class="key" type="button" data-operator="/" aria-label="Divide">/</button>
+      <button class="key" type="button" data-operator="*" aria-label="Multiply">×</button>
+
+      <button class="key key--wide key--action" type="button" data-action="reset">RESET</button>
+      <button class="key key--wide key--equals" type="button" data-action="equals" aria-label="Equals">=</button>
+    </section>
+  </main>
+  <script type="module" src="src/main.js"></script>
+</body>
+
+</html>

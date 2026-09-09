@@ -1,0 +1,223 @@
+$themes: (
+  "1": (
+    page-bg: hsl(222, 26%, 31%),
+    keypad-bg: hsl(223, 31%, 20%),
+    screen-bg: hsl(224, 36%, 15%),
+    heading-text: hsl(0, 100%, 100%),
+    screen-text: hsl(0, 100%, 100%),
+    key-bg: hsl(0, 0%, 90%),
+    key-shadow: hsl(28, 16%, 65%),
+    key-text: hsl(221, 14%, 31%),
+    action-bg: hsl(225, 21%, 49%),
+    action-shadow: hsl(224, 28%, 35%),
+    action-text: hsl(0, 100%, 100%),
+    equals-bg: hsl(6, 63%, 50%),
+    equals-shadow: hsl(6, 70%, 34%),
+    equals-text: hsl(0, 100%, 100%),
+    toggle-bg: hsl(223, 31%, 20%),
+    toggle-thumb: hsl(6, 63%, 50%),
+    focus-ring: hsl(0, 100%, 100%),
+  ),
+  "2": (
+    page-bg: hsl(0, 0%, 90%),
+    keypad-bg: hsl(0, 5%, 81%),
+    screen-bg: hsl(0, 0%, 93%),
+    heading-text: hsl(60, 10%, 19%),
+    screen-text: hsl(60, 10%, 19%),
+    key-bg: hsl(0, 0%, 90%),
+    key-shadow: hsl(35, 11%, 61%),
+    key-text: hsl(60, 10%, 19%),
+    action-bg: hsl(185, 42%, 37%),
+    action-shadow: hsl(185, 58%, 25%),
+    action-text: hsl(0, 100%, 100%),
+    equals-bg: hsl(25, 98%, 40%),
+    equals-shadow: hsl(25, 99%, 27%),
+    equals-text: hsl(0, 100%, 100%),
+    toggle-bg: hsl(0, 5%, 81%),
+    toggle-thumb: hsl(25, 98%, 40%),
+    focus-ring: hsl(185, 42%, 37%),
+  ),
+  "3": (
+    page-bg: hsl(268, 75%, 9%),
+    keypad-bg: hsl(268, 71%, 12%),
+    screen-bg: hsl(268, 71%, 12%),
+    heading-text: hsl(52, 100%, 62%),
+    screen-text: hsl(52, 100%, 62%),
+    key-bg: hsl(268, 47%, 21%),
+    key-shadow: hsl(290, 70%, 36%),
+    key-text: hsl(52, 100%, 62%),
+    action-bg: hsl(281, 89%, 26%),
+    action-shadow: hsl(285, 91%, 52%),
+    action-text: hsl(0, 100%, 100%),
+    equals-bg: hsl(176, 100%, 44%),
+    equals-shadow: hsl(177, 92%, 70%),
+    equals-text: hsl(198, 20%, 13%),
+    toggle-bg: hsl(268, 71%, 12%),
+    toggle-thumb: hsl(176, 100%, 44%),
+    focus-ring: hsl(176, 100%, 44%),
+  ),
+);
+
+// Sass maps and nested loops generate all three theme variable sets.
+@each $theme-name, $tokens in $themes {
+  html[data-theme="#{$theme-name}"] {
+    @each $token, $value in $tokens {
+      --#{$token}: #{$value};
+    }
+  }
+}
+
+@mixin key-colours($background, $shadow, $text) {
+  background-color: $background;
+  box-shadow: 0 4px 0 $shadow;
+  color: $text;
+
+  &:active,
+  &.is-pressed {
+    box-shadow: 0 1px 0 $shadow;
+  }
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+}
+
+.theme-toggle {
+  width: 71px;
+  height: 26px;
+  margin: 0;
+  padding: 5px;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  background: var(--toggle-bg);
+
+  &::-webkit-slider-runnable-track {
+    height: 16px;
+    background: transparent;
+  }
+
+  &::-moz-range-track {
+    height: 16px;
+    background: transparent;
+  }
+
+  &::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    border: 0;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    transition: filter 150ms ease;
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--toggle-thumb);
+    transition: filter 150ms ease;
+  }
+
+  &:hover {
+    &::-webkit-slider-thumb {
+      filter: brightness(1.35);
+    }
+    &::-moz-range-thumb {
+      filter: brightness(1.35);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+.key {
+  @include key-colours(var(--key-bg), var(--key-shadow), var(--key-text));
+
+  min-width: 0;
+  min-height: 60px;
+  padding: 7px 5px 1px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transition:
+    filter 120ms ease,
+    transform 80ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    filter: brightness(1.25);
+  }
+
+  &:active,
+  &.is-pressed {
+    transform: translateY(3px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  &--wide {
+    grid-column: span 2;
+  }
+
+  &--action {
+    @include key-colours(
+      var(--action-bg),
+      var(--action-shadow),
+      var(--action-text)
+    );
+    font-size: 1.25rem;
+  }
+
+  &--equals {
+    @include key-colours(
+      var(--equals-bg),
+      var(--equals-shadow),
+      var(--equals-text)
+    );
+    font-size: 1.25rem;
+  }
+}
+
+#display[data-size="medium"] {
+  font-size: clamp(2rem, 9vw, 2.75rem);
+}
+
+#display[data-size="small"] {
+  font-size: clamp(1.45rem, 7vw, 2rem);
+}
+
+@media (min-width: 600px) {
+  .key {
+    border-radius: 10px;
+    font-size: 2.5rem;
+
+    &--action,
+    &--equals {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
